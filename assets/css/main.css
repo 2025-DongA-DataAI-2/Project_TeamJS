@@ -12,29 +12,41 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Raleway",  sans-serif;
-  --nav-font: "Poppins",  sans-serif;
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Raleway", sans-serif;
+  --nav-font: "Poppins", sans-serif;
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #272829; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #050d18; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #149ddd; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+:root {
+  --background-color: #ffffff;
+  /* Background color for the entire website, including individual sections */
+  --default-color: #272829;
+  /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #050d18;
+  /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #149ddd;
+  /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --surface-color: #ffffff;
+  /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #ffffff;
+  /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: #a8a9b4;  /* The default color of the main navmenu links */
-  --nav-hover-color: #ffffff; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #040b14; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #040b14; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #a8a9b4; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #ffffff; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-color: #a8a9b4;
+  /* The default color of the main navmenu links */
+  --nav-hover-color: #ffffff;
+  /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #040b14;
+  /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #040b14;
+  /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #a8a9b4;
+  /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #ffffff;
+  /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
@@ -421,35 +433,37 @@ h6 {
 /*--------------------------------------------------------------
 # Scroll Top Button
 --------------------------------------------------------------*/
-.scroll-top {
+.scroll-control {
   position: fixed;
-  visibility: hidden;
-  opacity: 0;
   right: 15px;
-  bottom: -15px;
-  z-index: 99999;
-  background-color: var(--accent-color);
-  width: 44px;
-  height: 44px;
-  border-radius: 50px;
-  transition: all 0.4s;
-}
-
-.scroll-top i {
-  font-size: 24px;
-  color: var(--contrast-color);
-  line-height: 0;
-}
-
-.scroll-top:hover {
-  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
-  color: var(--contrast-color);
-}
-
-.scroll-top.active {
-  visibility: visible;
-  opacity: 1;
   bottom: 15px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s;
+  z-index: 99999;
+}
+
+.scroll-control.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-control i {
+  font-size: 30px;
+  color: var(--contrast-color);
+}
+
+/* hover 효과 */
+.scroll-control:hover {
+  cursor: none;
+  background-color: #7b3fe4;
 }
 
 /*--------------------------------------------------------------
@@ -1272,4 +1286,147 @@ section,
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+
+
+/* 따로 추가한 css  */
+/* ===== Code Block in Portfolio ===== */
+/* ===== Code Container ===== */
+.code-container {
+  position: relative;
+  margin-top: 10px;
+}
+
+/* Header */
+.code-header {
+  background: #2d2d2d;
+  color: #9cdcfe;
+  padding: 8px 14px;
+  border-radius: 10px 10px 0 0;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Copy button */
+.copy-btn {
+  background: #0d6efd;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.copy-btn:hover {
+  background: #0b5ed7;
+}
+
+/* Code box */
+.code-box {
+  background: #1e1e1e;
+  border-radius: 0 0 10px 10px;
+  font-family: "Fira Code", Consolas, monospace;
+  line-height: 1.6;
+  overflow-x: auto;
+  margin: 0;
+}
+
+/* 코드/결과 스와이퍼 카드 */
+.code-result-swiper {
+  margin-top: 12px;
+}
+
+/* 결과 이미지 카드 */
+.result-card {
+  background: #111;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.result-header {
+  background: #2d2d2d;
+  color: #9cdcfe;
+  padding: 8px 14px;
+  font-size: 14px;
+}
+
+/* ✅ code-box.medium과 동일한 높이 느낌으로 맞춤 */
+.result-card .result-body {
+  height: 340px;
+  /* ← code-box.medium의 max-height랑 맞추기 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+}
+
+/* ✅ 이미지가 박스 안에서 꽉 차게(넘치면 잘림) */
+.result-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* 전체가 보이게(여백 생길 수 있음) */
+  display: block;
+}
+
+/* 버튼이 너무 아래/위로 튀면 조절 */
+.code-result-swiper .swiper-button-prev,
+.code-result-swiper .swiper-button-next {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Large code box */
+.code-box.large {
+  min-height: 500px;
+  font-size: 14px;
+  padding: 20px;
+}
+
+.code-box.medium {
+  max-height: 340px;
+  /* ← 여기 숫자로 길이 조절 */
+  overflow-y: auto;
+  /* 세로 스크롤 */
+  font-size: 13px;
+  padding: 16px;
+}
+
+.code-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.code-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.home-float-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #6f42c1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 28px;
+  z-index: 9999;
+  transition: 0.3s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.home-float-btn:hover {
+  background: #59339d;
+  color: white;
+  text-decoration: none;
 }
