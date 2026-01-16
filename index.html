@@ -42,48 +42,27 @@
     <i class="header-toggle d-xl-none bi bi-list"></i>
 
     <div class="profile-img">
-      <img src="assets/img/my-profile-img.jpg" alt="" class="img-fluid rounded-circle">
+      <img src="./image_logo.png" alt="">
     </div>
 
     <a href="index.html" class="logo d-flex align-items-center justify-content-center">
       <!-- Uncomment the line below if you also wish to use an image logo -->
       <!-- <img src="assets/img/logo.png" alt=""> -->
-      <h1 class="sitename">K-MBL</h1>
+      <h1 class="sitename" style="color: red;">● ON-AIR</h1>
     </a>
 
-    <div class="social-links text-center">
-      <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
-      <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-      <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-      <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
-      <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-    </div>
+    
 
     <nav id="navmenu" class="navmenu">
       <ul>
-        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
-        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-        <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
-        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
-        <li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-          <ul>
-            <li><a href="#">Dropdown 1</a></li>
-            <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-              <ul>
-                <li><a href="#">Deep Dropdown 1</a></li>
-                <li><a href="#">Deep Dropdown 2</a></li>
-                <li><a href="#">Deep Dropdown 3</a></li>
-                <li><a href="#">Deep Dropdown 4</a></li>
-                <li><a href="#">Deep Dropdown 5</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Dropdown 2</a></li>
-            <li><a href="#">Dropdown 3</a></li>
-            <li><a href="#">Dropdown 4</a></li>
-          </ul>
-        </li>
-        <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Main</a></li><br>
+        <li><a href="#about"><i class="bi bi-person navicon"></i>introduction</a></li><br>
+        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i>hypothesys 1</a></li><br>
+        <li><a href="#portfolio"><i class="bi bi-hdd-stack navicon"></i>analyze 1</a></li><br>
+        <li><a href="#services"><i class="bi bi-file-earmark-text navicon"></i>hypothesys 2</a></li><br>
+        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i>analyze 2</a></li><br>
+        <li><a href="#services"><i class="bi bi-image navicon"></i>conclusion</a></li><br>
+        <li><a href="#testimonials"><i class="bi bi-person navicon"></i>Our team</a></li>
       </ul>
     </nav>
 
@@ -117,7 +96,7 @@
 
         <div class="row gy-4 justify-content-center">
           <div class="col-lg-4">
-            <img src="./img_profile.avif" width="360px" height="400px">
+            <img src="./img_profile.avif" height="400px">
           </div>
           <div class="col-lg-8 content">
             <h2>분석 목표 & 활용 데이터</h2>
@@ -211,7 +190,7 @@
 
             <div class="resume-item pb-0">
               <h4>넷플릭스</h4>
-              <p><em>OTT 서비스의 대표격인 넷플릭스를 기준으로 데이터셋 분석 시기 설정</em></p>
+              <p><em>대표적인 OTT 서비스 '넷플릭스'를 기준으로 데이터셋 분석 시기 설정</em></p>
               <ul>
                 <li>2010년 ~ 2015년: 넷플릭스 서비스 전</li>
                 <li>2016년 ~ 2018년: 넷플릭스 출시</li>
@@ -219,50 +198,29 @@
               </ul>
             </div><!-- Edn Resume Item -->
 
-            <h3 class="resume-title">선호도 분석</h3>
-            <div class="resume-item">
-              <h4>데이터셋을 활용하여 선호도 컬럼 산출</h4>
-              <p><em>선호도 = 평균 평점 x log(작품 수 + 1)</em></p>
-              <p>선호도</p>
-            </div><!-- Edn Resume Item -->
+
 
             <div class="resume-item">
               <h4>시기별 장르 작품 통계 산출</h4>
               <h5>2010 - 2015 | 2016 - 2018 | 2019 - 2022</h5>
               <p><em>각 시기별 특정 장르의 드라마가 몇 편 공개되었는지 집계</em></p>
-              <p>(Pandas 집계 결과)</p>
+              <img src="./image_pandas.png">
             </div><!-- Edn Resume Item -->
 
           </div>
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="resume-title">데이터 시각화</h3>
+            <h3 class="resume-title">통계화</h3>
             <div class="resume-item">
-              <h4>시기별 드라마 장르 선호도 데이터 시각화</h4>
-              <h5>2010 - 2015</h5>
-              <p><em>넷플릭스 서비스 이전</em></p>
+              <h4>산출한 통계를 바탕으로 작품이 많은 순서대로 서열화</h4>
               <ul>
-                <img src="./img_1015.png" width="550px">
-                <li>총 22개 장르로 세분화</li>
+                <img src="./static/OTT순위 비교.png" width="650px">
+                <li>총 22개 ROW로 세분화</li>
                 <li>로맨스 및 드라마 장르가 높은 선호도를 보임</li>
-                <h5>2010 - 2015</h5>
-                 <p><em>넷플릭스 서비스 이후</em></p>
+                 <p><em>분석을 위한 선호도 컬럼 도출</em></p>
               <ul>
-                <img src="./img_1015.png" width="550px">
-                <li>총 22개 장르로 세분화</li>
-                <li>로맨스 및 드라마 장르가 높은 선호도를 보임</li>
-              </ul>
-            </div><!-- Edn Resume Item -->
-
-            <div class="resume-item">
-              <h4>Graphic design specialist</h4>
-              <h5>2017 - 2018</h5>
-              <p><em>Stepping Stone Advertising, New York, NY</em></p>
-              <ul>
-                <li>Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).</li>
-                <li>Managed up to 5 projects or tasks at a given time while under pressure</li>
-                <li>Recommended and consulted with clients on the most appropriate graphic design</li>
-                <li>Created 4+ design presentations and proposals a month for clients and account managers</li>
+                <li>선호도 = (평균 평점) x log(작품 수 + 1)</li>
+                <li>로맨스 장르의 강세 유지, 코미디 장르 선호도 증가</li>
               </ul>
             </div><!-- Edn Resume Item -->
 
@@ -522,8 +480,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Testimonials</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <h2>팀원 소개</h2>
+        <p>프로젝트를 진행한 K-MBL 팀원</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -560,12 +518,12 @@
               <div class="testimonial-item">
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
+                  <span>Front (HTML/CSS)</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
                 <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
+                <h3>이준서</h3>
+
               </div>
             </div><!-- End testimonial item -->
 
@@ -573,12 +531,12 @@
               <div class="testimonial-item">
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
+                  <span>Server (Flask)</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
                 <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
+                <h3>박지선</h3>
+
               </div>
             </div><!-- End testimonial item -->
 
@@ -586,12 +544,12 @@
               <div class="testimonial-item">
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
+                  <span>Back (Data Visualization)</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
                 <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
+                <h3>문동현</h3>
+
               </div>
             </div><!-- End testimonial item -->
 
@@ -599,25 +557,16 @@
               <div class="testimonial-item">
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
+                  <span>Back (Data analyze)</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
                 <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
+                <h3>김유진</h3>
+
               </div>
             </div><!-- End testimonial item -->
 
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
+
               </div>
             </div><!-- End testimonial item -->
 
