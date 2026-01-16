@@ -6,7 +6,7 @@
 * License: https://bootstrapmade.com/license/
 */
 
-(function() {
+(function () {
   "use strict";
 
   /**
@@ -37,7 +37,7 @@
    * Toggle mobile nav dropdowns
    */
   document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
-    navmenu.addEventListener('click', function(e) {
+    navmenu.addEventListener('click', function (e) {
       e.preventDefault();
       this.parentNode.classList.toggle('active');
       this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
@@ -58,23 +58,62 @@
   /**
    * Scroll top button
    */
-  let scrollTop = document.querySelector('.scroll-top');
+  const scrollBtn = document.querySelector('#scroll-control');
+  const sections = document.querySelectorAll('section');
 
-  function toggleScrollTop() {
-    if (scrollTop) {
-      window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+  function updateScrollButton() {
+    if (!scrollBtn || sections.length === 0) return;
+
+    const currentScroll = window.scrollY + window.innerHeight;
+    const lastSection = sections[sections.length - 1];
+
+    // 마지막 섹션에 도달했는지 확인
+    const isLastSection =
+      currentScroll >= lastSection.offsetTop + lastSection.offsetHeight - 50;
+
+    if (isLastSection) {
+      // 맨 위로
+      scrollBtn.dataset.mode = 'top';
+      scrollBtn.innerHTML = `<i class="bi bi-arrow-up-short"></i>`;
+    } else {
+      // 다음 섹션
+      scrollBtn.dataset.mode = 'next';
+      scrollBtn.innerHTML = `<i class="bi bi-arrow-down-short"></i>`;
     }
+
+    scrollBtn.classList.add('active');
   }
-  scrollTop.addEventListener('click', (e) => {
+
+  scrollBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+
+    const mode = scrollBtn.dataset.mode;
+
+    if (mode === 'top') {
+      // 맨 위로 이동
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+      return;
+    }
+
+    // 다음 섹션으로 이동
+    const currentScroll = window.scrollY + 200;
+
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop > currentScroll) {
+        window.scrollTo({
+          top: sections[i].offsetTop,
+          behavior: 'smooth'
+        });
+        break;
+      }
+    }
   });
 
-  window.addEventListener('load', toggleScrollTop);
-  document.addEventListener('scroll', toggleScrollTop);
+  window.addEventListener('load', updateScrollButton);
+  window.addEventListener('scroll', updateScrollButton);
 
   /**
    * Animation on scroll function and init
@@ -118,7 +157,7 @@
     new Waypoint({
       element: item,
       offset: '80%',
-      handler: function(direction) {
+      handler: function (direction) {
         let progress = item.querySelectorAll('.progress .progress-bar');
         progress.forEach(el => {
           el.style.width = el.getAttribute('aria-valuenow') + '%';
@@ -137,13 +176,13 @@
   /**
    * Init isotope layout and filters
    */
-  document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
+  document.querySelectorAll('.isotope-layout').forEach(function (isotopeItem) {
     let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
     let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
     let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
 
     let initIsotope;
-    imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
+    imagesLoaded(isotopeItem.querySelector('.isotope-container'), function () {
       initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
         itemSelector: '.isotope-item',
         layoutMode: layout,
@@ -152,8 +191,8 @@
       });
     });
 
-    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
-      filters.addEventListener('click', function() {
+    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function (filters) {
+      filters.addEventListener('click', function () {
         isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
         this.classList.add('filter-active');
         initIsotope.arrange({
@@ -171,7 +210,7 @@
    * Init swiper sliders
    */
   function initSwiper() {
-    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
+    document.querySelectorAll(".init-swiper").forEach(function (swiperElement) {
       let config = JSON.parse(
         swiperElement.querySelector(".swiper-config").innerHTML.trim()
       );
@@ -189,7 +228,7 @@
   /**
    * Correct scrolling position upon page load for URLs containing hash links.
    */
-  window.addEventListener('load', function(e) {
+  window.addEventListener('load', function (e) {
     if (window.location.hash) {
       if (document.querySelector(window.location.hash)) {
         setTimeout(() => {
@@ -225,5 +264,8 @@
   }
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
+
+  // 여기 아래부터는 가내수공업으로 만든 기능들  
+
 
 })();
