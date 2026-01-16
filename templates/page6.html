@@ -1,11 +1,119 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- templates/result_6.html -->
+<!doctype html>
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>참고문헌</title>
+
+  <style>
+    :root{
+      --black:#111;
+      --muted:#555;
+      --line:#e3e3e6;
+      --soft:#f7f7f8;
+      --card:#ffffff;
+      --link:#2f5fd0;
+    }
+
+    body{
+      margin:0;
+      font-family:"Pretendard","Noto Sans KR",Arial,sans-serif;
+      color:var(--black);
+      background:#fff;
+    }
+
+    /* ✅ 3페이지부터 적용하기로 한 여백 */
+    .wrap{
+      padding: 40px 42px;
+    }
+
+    h2{
+      margin: 0 0 16px;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.2px;
+    }
+
+    .sub{
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px 20px;
+    }
+
+    ol{
+      margin: 0;
+      padding-left: 18px;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    li{
+      margin-bottom: 14px;
+    }
+
+    .ref-title{
+      font-weight: 700;
+    }
+
+    .ref-meta{
+      color: var(--muted);
+    }
+
+    a{
+      color: var(--link);
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    a:hover{
+      text-decoration: underline;
+    }
+  </style>
 </head>
+
 <body>
-    <h1>6번 페이지입니다</h1>
+  <div class="wrap">
+    <h2>참고문헌</h2>
+    <p class="sub">
+      가설 선정은 아래 선행연구 및 정책 보고서를 참고하여 발판을 마련하였다.
+    </p>
+
+    <section class="card">
+      <ol>
+        <li>
+          <span class="ref-meta">정보통신정책연구원(KISDI)</span>,
+          <span class="ref-title">
+            「코로나 이후 디지털전환과 경제·사회 미래전망」
+            (정책연구 21-07), TV 및 영상콘텐츠 이용 행태 부분.
+          </span><br/>
+          <a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&arrMasterId=3934560&id=1131356" target="_blank">
+            https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&arrMasterId=3934560&id=1131356
+          </a>
+        </li>
+
+        <li>
+          <span class="ref-meta">
+            김연정, 이헌율, 김예빈, 김혜수, 이보미
+          </span>.
+          <span class="ref-title">
+            (2025). 「한국 드라마의 장르 전략 변화 분석 : 방송사 유형별 집중도와 복합 장르 경향을 중심으로 (2005∼2023)」,
+            『한국방송학보』, 39(4), 5-52.
+          </span><br/>
+          <a href="https://www.dbpia.co.kr/pdf/pdfView.do?nodeId=NODE12296794&width=1294" target="_blank">
+            https://www.dbpia.co.kr/pdf/pdfView.do?nodeId=NODE12296794&width=1294
+          </a>
+        </li>
+      </ol>
+    </section>
+  </div>
 </body>
 </html>

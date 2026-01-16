@@ -1,11 +1,142 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>사용한 라이브러리 및 활용 데이터셋, 분석 방법</title>
+
+  <style>
+    :root{
+      --black:#111;
+      --muted:#555;
+      --line:#e3e3e6;
+      --soft:#f7f7f8;
+      --card:#ffffff;
+    }
+
+    body{
+      margin:0;
+      font-family:"Pretendard","Noto Sans KR",Arial,sans-serif;
+      color:var(--black);
+      background:#fff;
+    }
+
+    .wrap{
+  padding: 40px 42px;
+}
+
+    h2{
+      margin: 0 0 14px;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.2px;
+    }
+
+    .sub{
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .grid{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px 18px;
+    }
+
+    .card h3{
+      margin: 0 0 10px;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .kv{
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 8px 12px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .k{
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .badge{
+      display:inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      font-size: 12px;
+      color: var(--muted);
+      margin: 6px 6px 0 0;
+    }
+
+    ol{
+      margin: 0;
+      padding-left: 18px;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .note{
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+  </style>
 </head>
+
 <body>
-    <h2>2번 페이지</h2>
+  <div class="wrap">
+    <h2>사용한 라이브러리 및 활용 데이터셋, 분석 방법</h2>
+    <p class="sub">
+      kdrama.csv를 기반으로 데이터 구조를 확인하고 전처리 후, 특정 시기별 장르 선호도를 도출하여 시각화했다.
+    </p>
+
+    <div class="grid">
+      <section class="card">
+        <h3>환경 및 데이터</h3>
+        <div class="kv">
+          <div class="k">라이브러리</div><div>numpy, pandas, matplotlib</div>
+          <div class="k">프로그램</div><div>Python, HTML/CSS, JavaScript</div>
+          <div class="k">데이터셋</div><div>kdrama.csv</div>
+        </div>
+
+        <div style="margin-top:10px;">
+          <span class="badge">numpy</span>
+          <span class="badge">pandas</span>
+          <span class="badge">matplotlib</span>
+          <span class="badge">HTML/CSS</span>
+          <span class="badge">JavaScript</span>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3>분석 방법</h3>
+        <ol>
+          <li>kdrama 데이터셋의 크기, 컬럼, 정보 확인</li>
+          <li>표본이 적어 결과에 유의미한 영향을 주지 못하는 2003~2009 데이터 제외</li>
+          <li>특정 시기별 데이터 및 선호도 컬럼 도출</li>
+          <li>분석한 컬럼 기반 데이터 시각화</li>
+          <li>결론 도출</li>
+        </ol>
+        <!-- <p class="note">
+          ※ 제외 기준(2003~2009)은 “표본 수 부족”으로 인한 편향 가능성을 줄이기 위한 전처리 단계다.
+        </p> -->
+      </section>
+    </div>
+  </div>
 </body>
 </html>

@@ -1,11 +1,120 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>분석 목표 & 가설 설정</title>
+
+  <style>
+    :root{
+      --black:#111;
+      --muted:#555;
+      --line:#e3e3e6;
+      --soft:#f7f7f8;
+      --card:#ffffff;
+    }
+
+    body{
+      margin:0;
+      font-family:"Pretendard","Noto Sans KR",Arial,sans-serif;
+      color:var(--black);
+      background:#fff;
+    }
+
+       .wrap{
+  padding: 40px 42px;
+}
+
+
+    h2{
+      margin: 0 0 14px;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.2px;
+    }
+
+    .sub{
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .grid{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px 18px;
+    }
+
+    .card h3{
+      margin: 0 0 10px;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    ul{
+      margin: 0;
+      padding-left: 18px;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    ol{
+      margin: 0;
+      padding-left: 18px;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .hint{
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--muted);
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 12px;
+      line-height: 1.6;
+    }
+  </style>
 </head>
+
 <body>
-    <h1>1번 페이지</h1>
+  <div class="wrap">
+    <h2>분석 목표 & 가설 설정</h2>
+    <p class="sub">
+      K-드라마 장르 선호도의 변화 양상을 확인하고, 가설을 기반으로 변화 요인을 해석한다.
+    </p>
+
+    <div class="grid">
+      <section class="card">
+        <h3>분석 목표</h3>
+        <ul>
+          <li>K-드라마 장르 선호도 파악</li>
+          <li>연도별 장르 변화 추이 시각화</li>
+          <li>가설을 기반으로 장르 선호 변화 요인 해석</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3>가설</h3>
+        <ol>
+          <li>장르 선호도의 변화는 OTT의 영향이 있을 것이다?</li>
+          <li>장르 선호도의 변화는 사회적 이슈의 영향이 있을 것이다?</li>
+        </ol>
+
+        <!-- <div class="hint">
+          ※ 가설 검증은 “특정 시기별 장르 비중 변화”와 “외부 요인(OTT/사회 이슈) 시점”을 함께 비교하는 방식으로 진행한다.
+        </div> -->
+      </section>
+    </div>
+  </div>
 </body>
 </html>

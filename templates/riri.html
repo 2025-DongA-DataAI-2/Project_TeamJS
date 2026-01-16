@@ -3,279 +3,302 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>흑백드라마 : 장르의 전쟁</title>
 
   <style>
-* { box-sizing: border-box; }
+    * { box-sizing: border-box; }
 
-/* 🎞️ 흑백 필름 팔레트 */
-:root{
-  --black:#0f0f0f;      /* 바깥 배경 */
-  --charcoal:#1c1c1c;   /* 텍스트 */
-  --line:#cfcfcf;       /* 경계선 */
-  --panel:#f2f2f2;      /* 목차 패널 */
-  --paper:#fbfbfb;      /* 본문 종이 */
-}
+  
+    :root{
+      --black:#0f0f0f;      /* 바깥 배경 */
+      --charcoal:#1c1c1c;   /* 텍스트 */
+      --line:#cfcfcf;       /* 경계선 */
+      --panel:#f2f2f2;      /* 목차 패널 */
+      --paper:#fbfbfb;      /* 본문 종이 */
+    }
 
-body{
-  margin: 0;
-  font-family: "Pretendard","Noto Sans KR",Arial,sans-serif;
-  background: var(--black);   /* ✅ 완전 블랙 */
-  color: var(--charcoal);
-  padding: 48px 0;
-}
+    body{
+      margin: 0;
+      font-family: "Pretendard","Noto Sans KR",Arial,sans-serif;
+      background: var(--black);
+      color: var(--charcoal);
+      padding: 48px 0;
+    }
 
-/* 타이틀 */
-#family{
-  text-align: center;
-  font-size: 44px;
-  font-weight: 900;
-  letter-spacing: -0.6px;
-  color: #ffffff;
-  margin-bottom: 36px;
-}
+    /* 인트로 재생 동안 스크롤/터치 방지 */
+    body.intro-on{
+      overflow: hidden;
+    }
 
-#family::after{
-  content:"";
-  display:block;
-  width: 96px;
-  height: 2px;
-  background: #ffffff;
-  margin: 16px auto 0;
-  opacity: 0.85;
-}
+    /* 타이틀 */
+    #family{
+      text-align: center;
+      font-size: 44px;
+      font-weight: 900;
+      letter-spacing: -0.6px;
+      color: #ffffff;
+      margin-bottom: 36px;
+    }
 
-/* 전체 프레임 */
-table{
-  width: min(1200px, 92vw);
-  height: 720px;
-  margin: 0 auto;
-  border-collapse: collapse;
-  background: var(--paper);
+    #family::after{
+      content:"";
+      display:block;
+      width: 96px;
+      height: 2px;
+      background: #ffffff;
+      margin: 16px auto 0;
+      opacity: 0.85;
+    }
 
-  border-radius: 18px;
-  overflow: hidden;
+    /* 표 등장 */
+    table{
+      width: min(1200px, 92vw);
+      height: 720px;
+      margin: 0 auto;
+      border-collapse: collapse;
+      background: var(--paper);
 
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,0.15),
-    0 24px 60px rgba(0,0,0,0.6);
-}
+      border-radius: 18px;
+      overflow: hidden;
 
-th, td{
-  padding: 0;
-  vertical-align: top;
-}
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.15),
+        0 24px 60px rgba(0,0,0,0.6);
 
-/* 좌측 목차 패널 */
-th, table tr td:first-child{
-  width: 300px;
-  background: var(--panel);
-  border-right: 1px solid var(--line);
-}
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 1.05s ease, transform 1.05s ease; /* ← 조금 더 길게 */
+    }
 
-/* 목차 헤더 */
-th.menu-title{
-  height: 88px;
-  text-align: center;
-  vertical-align: middle;
+    body.ready table{
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-  font-size: 18px;
-  font-weight: 900;
-  letter-spacing: 0.3em;
-  color: #000;
+    th, td{
+      padding: 0;
+      vertical-align: top;
+    }
 
-  background: #e6e6e6;
-  border-bottom: 1px solid var(--line);
-}
+    /* 목차 패널 */
+    th, table tr td:first-child{
+      width: 300px;
+      background: var(--panel);
+      border-right: 1px solid var(--line);
+    }
 
-/* 목차 항목 */
-table tr td:first-child{
-  position: relative;
-  border-bottom: 1px solid #dedede;
-}
+    /* 목차 헤더 */
+    th.menu-title{
+      height: 88px;
+      text-align: center;
+      vertical-align: middle;
 
-table tr td:first-child a{
-  display: flex;
-  align-items: center;
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: 0.3em;
+      color: #000;
 
-  width: 100%;
-  height: 100%;
-  padding: 18px 22px;
+      background: #e6e6e6;
+      border-bottom: 1px solid var(--line);
+    }
 
-  color: #000;
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 500;
+    /* 목차 항목 */
+    table tr td:first-child{
+      position: relative;
+      border-bottom: 1px solid #dedede;
+    }
 
-  transition:
-    background 0.15s ease,
-    padding-left 0.15s ease;
-}
+    table tr td:first-child a{
+      display: flex;
+      align-items: center;
 
-/* 왼쪽 강조 바 */
-table tr td:first-child::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:0;
-  bottom:0;
-  width: 0;
-  background: #000;
-  transition: width 0.15s ease;
-}
+      width: 100%;
+      height: 100%;
+      padding: 18px 22px;
 
-/* hover 효과 */
-table tr td:first-child:hover{
-  background: #e0e0e0;
-}
+      color: #000;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
 
-table tr td:first-child:hover::before{
-  width: 4px;
-}
+      transition:
+        background 0.15s ease,
+        padding-left 0.15s ease;
+    }
 
-table tr td:first-child:hover a{
-  padding-left: 28px;
-}
+    /* 왼쪽 강조 바 */
+    table tr td:first-child::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:0;
+      bottom:0;
+      width: 0;
+      background: #000;
+      transition: width 0.15s ease;
+    }
 
-/* 본문 */
-iframe{
-  width: 100%;
-  height: 720px;
-  border: 0;
-  display: block;
-  background: var(--paper);
-}
+   
+    table tr td:first-child:hover{
+      background: #e0e0e0;
+    }
 
-/* 반응형 */
-@media (max-width: 900px){
-  table{ width: 96vw; }
-  th, table tr td:first-child{ width: 240px; }
+    table tr td:first-child:hover::before{
+      width: 4px;
+    }
 
-  th.menu-title{
-    height: 76px;
-    font-size: 16px;
-  }
+    table tr td:first-child:hover a{
+      padding-left: 28px;
+    }
 
-  table tr td:first-child a{
-    font-size: 14px;
-    padding: 16px;
-  }
-}
+    /* 본문 */
+    iframe{
+      width: 100%;
+      height: 720px;
+      border: 0;
+      display: block;
+      background: var(--paper);
+    }
 
+    /* 반응형 */
+    @media (max-width: 900px){
+      table{ width: 96vw; }
+      th, table tr td:first-child{ width: 240px; }
+
+      th.menu-title{
+        height: 76px;
+        font-size: 16px;
+      }
+
+      table tr td:first-child a{
+        font-size: 14px;
+        padding: 16px;
+      }
+    }
+
+    
+
+    
 /* =========================
-   🎞️ INTRO FLICKER SEQUENCE
+   INTRO (클릭 시작 / 이미지로 시작)
 ========================= */
 
-/* 기본 상태 */
-.intro-black{ opacity: 1; }
-.intro-shot{ opacity: 0; transform: scale(1.02); }
+#intro{
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 99999;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
 
-/* play 되면 시퀀스 시작 */
+/* 검정 레이어(깜박 담당) */
+.intro-black{
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: 0; 
+}
+
+/* 이미지 기본 상태 (시작을 이미지로) */
+.intro-shot{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  opacity: 1; 
+  transform: none;
+  filter: grayscale(1) contrast(1.12) brightness(0.9);
+}
+
+/* 시퀀스 시작 */
 #intro.play .intro-black{
-  animation: blackFlicker 2.25s ease-in-out forwards;
+  animation: blackFlicker 3.2s ease-in-out forwards;
 }
-
 #intro.play .intro-shot{
-  animation: shotFlicker 2.25s ease-in-out forwards;
+  animation: shotFlicker 3.2s ease-in-out forwards;
 }
 
-/* 마지막 페이드아웃 (표로 넘어가기) */
+/* 마지막 페이드아웃 */
 #intro.out{
-  animation: introOut 0.55s ease forwards;
+  animation: introOut 0.65s ease forwards;
 }
 
-/* 검정 레이어가 "대부분"을 담당하고, 특정 구간만 꺼지면서 이미지가 보이게 */
+/* ✅ 검정 레이어: 1=검정, 0=이미지 */
 @keyframes blackFlicker{
-  /* 처음: 검정 유지 */
-  0%   { opacity: 1; }
+  0%   { opacity: 0; }   /* 시작: 이미지 */
 
-  /* 느리게 깜박 1 */
-  18%  { opacity: 1; }
-  26%  { opacity: 0; }  /* 이미지 ON */
-  34%  { opacity: 1; }  /* 다시 검정 */
+  
+  12%  { opacity: 0; }
+  20%  { opacity: 1; }   /* 검정 */
+  30%  { opacity: 0; }   /* 이미지 */
+  42%  { opacity: 0; }   /* 이미지 유지 */
+  50%  { opacity: 1; }   /* 검정 */
 
-  /* 느리게 깜박 2 */
-  44%  { opacity: 1; }
-  52%  { opacity: 0; }
+  
   58%  { opacity: 1; }
-
-  /* 빠르게 깜박깜박 */
-  66%  { opacity: 0; }
+  64%  { opacity: 0; }
   70%  { opacity: 1; }
+
+  
   74%  { opacity: 0; }
   78%  { opacity: 1; }
+
+  
   82%  { opacity: 0; }
-  86%  { opacity: 1; }
+  85%  { opacity: 1; }
+  88%  { opacity: 0; }
+  91%  { opacity: 1; }
 
-  /* 마지막: 이미지 한 번 더 보여주고 끝 */
-  92%  { opacity: 0; }
-  100% { opacity: 0; }
+  
+  94%  { opacity: 1; }   
+  100% { opacity: 1; }   
 }
 
-/* 이미지는 검정이 꺼질 때만 보이게 반대로 */
+
 @keyframes shotFlicker{
-  0%   { opacity: 0; transform: scale(1.02); }
+  0%   { opacity: 1;  }
 
-  /* 느리게 깜박 1 */
-  26%  { opacity: 1; transform: scale(1.04); }
-  34%  { opacity: 0; transform: scale(1.02); }
+  
+  20%  { opacity: 0;  } 
+  30%  { opacity: 1; }
+  42%  { opacity: 1; }
+  50%  { opacity: 0;  }
 
-  /* 느리게 깜박 2 */
-  52%  { opacity: 1; transform: scale(1.00); }
-  58%  { opacity: 0; transform: scale(1.02); }
+  
+  64%  { opacity: 1; }
+  70%  { opacity: 0;  }
 
-  /* 빠르게 깜박깜박 */
-  66%  { opacity: 1; transform: scale(1.00); }
-  70%  { opacity: 0; transform: scale(1.02); }
-  74%  { opacity: 1; transform: scale(1.00); }
-  78%  { opacity: 0; transform: scale(1.02); }
-  82%  { opacity: 1; transform: scale(1.00); }
-  86%  { opacity: 0; transform: scale(1.02); }
+  
+  74%  { opacity: 1; }
+  78%  { opacity: 0; }
 
-  /* 마지막 유지 */
-  92%  { opacity: 1; transform: scale(1.00); }
-  100% { opacity: 1; transform: scale(1.00); }
-}
-@keyframes introBlack{
-  to { opacity: 0; }
-}
+  
+  82%  { opacity: 1; }
+  85%  { opacity: 0; }
+  88%  { opacity: 1;  }
+  91%  { opacity: 0; }
 
-/* 조명 켜짐 느낌: 짧게 팟 + 살짝 확대가 원위치 */
-@keyframes introShotOn{
-  0%   { opacity: 0; transform: scale(1.03); }
-  60%  { opacity: 1; transform: scale(1.00); }
-  100% { opacity: 1; transform: scale(1.00); }
+  
+  94%  { opacity: 0; }
+  100% { opacity: 0;  }
 }
 
 @keyframes introOut{
   to { opacity: 0; visibility: hidden; }
+
 }
-
-/* 접근성: 모션 줄이기 */
-@media (prefers-reduced-motion: reduce){
-  #intro, .intro-black, .intro-shot{
-    animation: none !important;
-    transition: none !important;
-  }
-}
-
-
-
-  </style>
-
-
+   </style>
 </head>
 
 <body>
 
-<!-- ✅ Intro Overlay -->
-<div id="intro" aria-hidden="true">
-  <div class="intro-black"></div>
-
-  <!-- 두 번째 컷: 조명 + TV 그림자 이미지 -->
-  <img class="intro-shot" src="{{ url_for('static', filename='intro.png') }}" alt="intro shot">
-
-</div>
+  <!-- ✅ Intro Overlay -->
+  <div id="intro" aria-hidden="true">
+    <div class="intro-black"></div>
+    <img class="intro-shot" src="{{ url_for('static', filename='intro.png') }}" alt="intro shot">
+  </div>
 
   <h1 id="family">흑백드라마 : 장르의 전쟁</h1>
 
@@ -286,38 +309,50 @@ iframe{
         <iframe name="result" frameborder="0"></iframe>
       </td>
     </tr>
-    <tr><td><a href="{{url_for('result', no='1')}}" target="result">1. 분석 목표 및 방법</a></td></tr>
-    <tr><td><a href="{{url_for('result', no='2')}}" target="result">2.사용한 라이브러리 및 활용 데이터셋</a></td></tr>
+    <tr><td><a href="{{url_for('result', no='1')}}" target="result">1. 분석 목표 & 가설 설정</a></td></tr>
+    <tr><td><a href="{{url_for('result', no='2')}}" target="result">2. 사용 라이브러리, 데이터셋, 분석 방법</a></td></tr>
     <tr><td><a href="{{url_for('result', no='3')}}" target="result">3. 데이터 전처리 과정</a></td></tr>
     <tr><td><a href="{{url_for('result', no='4')}}" target="result">4. 분석결과시각화</a></td></tr>
     <tr><td><a href="{{url_for('result', no='5')}}" target="result">5. 분석에 대한 결론</a></td></tr>
-    <tr><td><a href="{{url_for('result', no='6')}}" target="result">6. 참고문헌</a></td></tr>
+    <tr><td><a href="{{url_for('result', no='6')}}" target="result">6. 참고자료</a></td></tr>
     <tr><td><a href="{{url_for('result', no='7')}}" target="result">7. 팀원역할</a></td></tr>
   </table>
 
-
-
- <script>
-  window.addEventListener('load', () => {
+  <script>
+    window.addEventListener('load', () => {
     const intro = document.getElementById('intro');
     if(!intro) return;
 
-    intro.classList.add('play');
+    const seq = 3.2;
+    const holdBeforeTable = 250; // 
 
-    // ✅ 깜박 총 길이(초): CSS 애니메이션 duration과 동일하게!
-    const seq = 2.25;
+    document.body.classList.add('intro-on');
 
-    setTimeout(() => {
-      // 표가 자연스럽게 나오게 하고 싶으면 여기서 body 클래스도 주기
-      document.body.classList.add('ready');
+    const start = () => {
+      intro.removeEventListener('click', start);
+      window.removeEventListener('keydown', onKey);
 
-      intro.classList.add('out');
-      setTimeout(() => intro.remove(), 600);
-    }, seq * 1000);
+      intro.classList.add('play');
+
+      setTimeout(() => {
+        intro.classList.add('out');
+
+        setTimeout(() => {
+          document.body.classList.add('ready'); // 표 등장
+        }, holdBeforeTable);
+
+        document.body.classList.remove('intro-on');
+        setTimeout(() => intro.remove(), 700);
+      }, seq * 1000);
+    };
+
+    const onKey = (e) => {
+      if (e.key === 'Enter' || e.key === ' ') start();
+    };
+
+    intro.addEventListener('click', start);
+    window.addEventListener('keydown', onKey);
   });
-</script>
-
-
-
+  </script>
 </body>
 </html>
