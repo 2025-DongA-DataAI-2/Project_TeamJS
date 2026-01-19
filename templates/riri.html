@@ -23,6 +23,7 @@
       background: var(--black);
       color: var(--charcoal);
       padding: 48px 0;
+      
     }
 
     /* 인트로 재생 동안 스크롤/터치 방지 */
@@ -158,6 +159,12 @@
       border: 0;
       display: block;
       background: var(--paper);
+
+      body{
+  font-size: 17px;      /* 기존보다 키움 */
+  line-height: 1.8;     /* 가독성 개선 */
+  padding: 48px 56px;   /* 여백 키워서 답답함 제거 */
+}
     }
 
     /* 반응형 */
@@ -311,10 +318,10 @@
     </tr>
     <tr><td><a href="{{url_for('result', no='1')}}" target="result">1. 분석 목표 & 가설 설정</a></td></tr>
     <tr><td><a href="{{url_for('result', no='2')}}" target="result">2. 사용 라이브러리, 데이터셋, 분석 방법</a></td></tr>
-    <tr><td><a href="{{url_for('result', no='3')}}" target="result">3. 데이터 전처리 과정</a></td></tr>
-    <tr><td><a href="{{url_for('result', no='4')}}" target="result">4. 분석결과시각화</a></td></tr>
-    <tr><td><a href="{{url_for('result', no='5')}}" target="result">5. 분석에 대한 결론</a></td></tr>
-    <tr><td><a href="{{url_for('result', no='6')}}" target="result">6. 참고자료</a></td></tr>
+    <tr><td><a href="{{url_for('result', no='3')}}" target="result">3. 데이터 전처리</a></td></tr>
+    <tr><td><a href="{{url_for('result', no='4')}}" target="result">4. 가설 1 - 분석</a></td></tr>
+    <tr><td><a href="{{url_for('result', no='5')}}" target="result">5. 가설 2 - 분석</a></td></tr>
+    <tr><td><a href="{{url_for('result', no='6')}}" target="result">6. 결론</a></td></tr>
     <tr><td><a href="{{url_for('result', no='7')}}" target="result">7. 팀원역할</a></td></tr>
   </table>
 

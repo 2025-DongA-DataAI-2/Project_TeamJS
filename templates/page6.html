@@ -1,0 +1,180 @@
+<!-- templates/result_6.html -->
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>분석 결론</title>
+
+  <style>
+    :root{
+      --black:#111;
+      --muted:#555;
+      --line:#e3e3e6;
+      --soft:#f7f7f8;
+      --card:#ffffff;
+    }
+
+    body{
+      margin:0;
+      font-family:"Pretendard","Noto Sans KR",Arial,sans-serif;
+      color:var(--black);
+      background:#fff;
+    }
+
+    .wrap{ padding: 40px 42px; }
+
+    h2{
+      margin: 0 0 16px;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.2px;
+    }
+
+    .sub{
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .grid{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px 18px;
+    }
+
+    .card h3{
+      margin: 0 0 12px;
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    p{
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* 그래프 */
+    .graph{
+      margin: 12px 0 14px;   /* 제목-그래프 / 그래프-본문 간격 */
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .graph-body{
+      padding: 16px;
+      background:#fff;
+    }
+
+    .graph-body img{
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+    }
+
+    /* 종합 결론 강조 */
+    .final{
+      padding: 22px;
+      background: linear-gradient(0deg, var(--soft), #fff);
+    }
+
+    .final h3{
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
+    .final p{
+      font-size: 15px;
+      line-height: 1.85;
+    }
+
+    .final .highlight{
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--muted);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 14px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <h2>분석 결론</h2>
+    <p class="sub">
+      본 프로젝트는 OTT의 확산과 사회적 이슈가 K-드라마 장르 선호도 변화에 어떤 영향을 주었는지 확인하는 것을 목표로 했다.
+    </p>
+
+    <div class="grid">
+
+      <!-- 가설 1 -->
+      <section class="card">
+        <h3>가설 1 분석 결과 요약</h3>
+
+        <!-- ✅ 제목 바로 아래 그래프 -->
+        <div class="graph">
+          <div class="graph-body">
+            <img src="/static/OTT출시전과 대중화의 드라마 선호도 비교.png" alt="">
+          </div>
+        </div>
+
+        <p>
+          OTT의 등장은 로맨스·드라마 중심의 장르 구조를 유지하면서도, 범죄·스릴러·SF·판타지 등
+          비전통 장르의 선호를 확대시켜 장르 선호의 분산을 이끌어 냈다.
+        </p>
+      </section>
+
+      <!-- 가설 2 -->
+      <section class="card">
+        <h3>가설 2 분석 결과 요약</h3>
+
+        <!-- ✅ 제목 바로 아래 그래프 -->
+        <div class="graph">
+          <div class="graph-body">
+            <!-- <img src="/static/graphs/h2_summary.png" alt="가설 2 결과 그래프"> -->
+            <img src="/static/사회적 불안에 따른 드라마 선호도 비교.png" alt="">
+          </div>
+        </div>
+
+        <p>
+          사회적 위기 이후 시기에는 정서적 오락 중심 장르에서 현실 반영형 장르로 관심이 이동했으며,
+          팬데믹 이후에는 사회적 거리두기의 영향으로 드라마 전반의 선호도 자체가 약화되는 경향을 보였다.
+        </p>
+      </section>
+
+      <!-- 종합 결론 -->
+      <section class="card final">
+        <h3>종합 결론</h3>
+
+        <p>
+          OTT의 특징은 언제 어디서나 쉽게 드라마를 볼 수 있다는 점이다. 그 덕에 드라마 수요가 증가하고,
+          자연스럽게 공급 역시 증가하면서 전체적인 선호도도 증가해왔다. 하지만 코로나로 인한 거리두기 후
+          제작수가 줄어들며, 드라마를 향한 전반적인 선호도 또한 줄어드는 현상을 보였다.
+        </p>
+
+        <br>
+
+        <p>
+          우리는 분석을 통해 OTT의 등장과 사회적 이슈가 드라마 장르 및 드라마 선호도에 유의미한 영향을 주고 있음을 확인했다.
+        </p>
+      </section>
+
+    </div>
+  </div>
+</body>
+</html>

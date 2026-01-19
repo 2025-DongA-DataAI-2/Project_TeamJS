@@ -1,9 +1,10 @@
+<!-- templates/result_7.html -->
 <!doctype html>
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>팀원 역할</title>
+  <title>팀원 역할 & 참고문헌</title>
 
   <style>
     :root{
@@ -12,6 +13,7 @@
       --line:#e3e3e6;
       --soft:#f7f7f8;
       --card:#ffffff;
+      --link:#2f5fd0;
     }
 
     body{
@@ -40,10 +42,12 @@
       font-size: 14px;
     }
 
+    /* ===== 팀원 역할 ===== */
     .grid{
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
+      margin-bottom: 26px;
     }
 
     .card{
@@ -72,7 +76,6 @@
       overflow: hidden;
     }
 
-    /* 실제 이미지 쓸 때 */
     .avatar img{
       width: 100%;
       height: 100%;
@@ -105,6 +108,50 @@
       line-height: 1.75;
     }
 
+    /* ===== 참고문헌 ===== */
+    .section-title{
+      margin: 10px 0 12px;
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: -0.2px;
+    }
+
+    .ref-card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px 20px;
+    }
+
+    .ref-list{
+      margin: 0;
+      padding-left: 18px;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .ref-list li{
+      margin-bottom: 14px;
+    }
+
+    .ref-title{
+      font-weight: 700;
+    }
+
+    .ref-meta{
+      color: var(--muted);
+    }
+
+    a{
+      color: var(--link);
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    a:hover{
+      text-decoration: underline;
+    }
+
     @media (max-width: 720px){
       .grid{ grid-template-columns: 1fr; }
       .card{ grid-template-columns: 76px 1fr; }
@@ -115,21 +162,19 @@
 
 <body>
   <div class="wrap">
+    <!-- ===== 팀원 역할 ===== -->
     <h2>팀원 역할</h2>
-    <br>
-    <!-- <p class="sub">각 팀원의 담당 업무를 정리하였다. (사진 영역은 추후 이미지로 교체 가능)</p> -->
+    <p class="sub">각 팀원의 담당 업무를 정리하였다. (사진 영역은 추후 이미지로 교체 가능)</p>
 
     <div class="grid">
       <!-- 이준서 -->
       <section class="card">
         <div class="avatar">
-          <!-- 사진 넣을 때 아래 주석 해제하고 src만 교체 -->
-          <!-- <img src="/static/team/leejunseo.jpg" alt="이준서"> -->
-          사진<br/>영역
+          <img src="/static/img_profile_이준서.png" alt="">
         </div>
         <div>
           <div class="name">이준서</div>
-          <div class="role">팀장, 프론트</div>
+          <div class="role">팀장</div>
           <ul>
             <li>맡은 역할 1</li>
             <li>맡은 역할 2</li>
@@ -140,7 +185,7 @@
       <!-- 문동현 -->
       <section class="card">
         <div class="avatar">
-          <!-- <img src="/static/team/moondonghyun.jpg" alt="문동현"> -->
+         <img src="" alt="">
           사진<br/>영역
         </div>
         <div>
@@ -156,8 +201,7 @@
       <!-- 김유진 -->
       <section class="card">
         <div class="avatar">
-          <!-- <img src="/static/team/kimyujin.jpg" alt="김유진"> -->
-          사진<br/>영역
+         <img src="/static/img_profile_김유진.png" alt="">
         </div>
         <div>
           <div class="name">김유진</div>
@@ -172,12 +216,11 @@
       <!-- 박지선 -->
       <section class="card">
         <div class="avatar">
-          <!-- <img src="/static/team/parkjiseon.jpg" alt="박지선"> -->
-          사진<br/>영역
+          <img src="/static/img_profile_박지선.jpg" alt="">
         </div>
         <div>
           <div class="name">박지선</div>
-          <div class="role">플라스크</div>
+          <div class="role">플라스크 제작</div>
           <ul>
             <li>맡은 역할 1</li>
             <li>맡은 역할 2</li>
@@ -185,6 +228,38 @@
         </div>
       </section>
     </div>
+
+  
+    <div class="section-title">참고문헌</div>
+    <p class="sub">본 프로젝트는 아래 선행연구 및 정책 보고서를 참고하여 가설을 설정하였다.</p>
+
+    <section class="ref-card">
+      <ol class="ref-list">
+        <li>
+          <span class="ref-title">정보통신정책연구원(KISDI)</span>,
+          <span class="ref-meta">
+            「코로나 이후 디지털전환과 경제·사회 미래전망」
+            (정책연구 21-07), TV 및 영상콘텐츠 이용 행태 부분.
+          </span><br/>
+          <a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&arrMasterId=3934560&id=1131356" target="_blank">
+            https://www.kisdi.re.kr/report/fileView.do?key=m2101113024153&arrMasterId=3934560&id=1131356
+          </a>
+        </li>
+
+        <li>
+          <span class="ref-title">
+            김연정, 이헌율, 김예빈, 김혜수, 이보미
+          </span>.
+          <span class="ref-meta">
+            (2025). 「한국 드라마의 장르 전략 변화 분석 : 방송사 유형별 집중도와 복합 장르 경향을 중심으로 (2005∼2023)」,
+            『한국방송학보』, 39(4), 5-52.
+          </span><br/>
+          <a href="https://www.dbpia.co.kr/pdf/pdfView.do?nodeId=NODE12296794&width=1294" target="_blank">
+            https://www.dbpia.co.kr/pdf/pdfView.do?nodeId=NODE12296794&width=1294
+          </a>
+        </li>
+      </ol>
+    </section>
   </div>
 </body>
 </html>

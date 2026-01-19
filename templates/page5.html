@@ -1,0 +1,227 @@
+<!-- templates/result_4.html -->
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>가설 2 분석: 사회적 불안 요소</title>
+
+  <style>
+    :root{
+      --black:#111;
+      --muted:#555;
+      --line:#e3e3e6;
+      --soft:#f7f7f8;
+      --card:#ffffff;
+    }
+
+    body{
+      margin:0;
+      font-family:"Pretendard","Noto Sans KR",Arial,sans-serif;
+      color:var(--black);
+      background:#fff;
+    }
+
+    /* ✅ 3페이지부터 적용하기로 한 여백 */
+    .wrap{ padding: 40px 42px; }
+
+    h2{
+      margin: 0 0 16px;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.2px;
+    }
+
+    .sub{
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    /* ✅ 큰 카드(섹션)들 사이 간격을 확실히 */
+    .grid{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;  /* ← 여기 중요 */
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px 18px;
+    }
+
+    .card h3{
+      margin: 0 0 10px;
+      font-size: 15px;
+      font-weight: 900;
+      letter-spacing: -0.1px;
+    }
+
+    ul{
+      margin: 0;
+      padding-left: 18px;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .code{
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      font-size: 12.5px;
+      line-height: 1.6;
+      margin-top: 10px;
+      white-space: pre-wrap;
+    }
+
+    .pill{
+      display:inline-block;
+      font-size: 12px;
+      color: var(--muted);
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      margin: 6px 6px 0 0;
+    }
+
+    /* 그래프 영역: 2열로 넉넉하게 + 자동높이 */
+    .graphs{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .graph{
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .graph-head{
+      padding: 12px 14px;
+      background: var(--soft);
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .graph-body{
+      padding: 16px; /* 여백 */
+      background:#fff;
+    }
+
+    .graph-body img{
+      width: 100%;
+      height: auto;       /* ✅ 이미지 비율대로 자동 */
+      display: block;
+      border-radius: 10px;
+      background:#fff;
+    }
+
+    @media (max-width: 980px){
+      .graphs{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <h2>가설 2 분석: 사회적 불안 요소</h2>
+    <p class="sub">
+      사회적 혼란이 가중되었던 시점을 기준으로 기간을 나누고, 시기별 장르 선호도 변화를 비교한다.
+    </p>
+
+    <div class="grid">
+      <section class="card">
+        <h3>가설 2 — 장르 선호도와 사회적 불안 요소의 연관성</h3>
+        <div style="margin-top:10px;">
+          <span class="pill">시기 구간 비교</span>
+          <span class="pill">사회 이슈 기준점</span>
+          <span class="pill">선호도 지표(평점×log)</span>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3>기준점 설정</h3>
+        <ul>
+          <li>데이터 기간 중 사회적 혼란이 가중되었던 특정 시점을 기준으로 선정하여 데이터셋 분석</li>
+          <li>2017년: 박근혜 전 대통령 탄핵</li>
+          <li>2020년: 코로나19 팬데믹 시작</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3>통계화 & 선호도 컬럼 도출</h3>
+        <ul>
+          <li>산출한 통계를 바탕으로 작품이 많은 순서대로 서열화</li>
+          <li>총 25개 장르 ROW 도출</li>
+          <li>로맨스/드라마/미스터리/코미디/스릴러의 강세</li>
+          <li style="margin-top:8px;">선호도 컬럼 도출(통계 분석 및 시각화 목적)</li>
+        </ul>
+        <div class="code">선호도 = (평균 평점) x log(작품 수 + 1)</div>
+      </section>
+
+      <section class="card">
+        <h3>시기별 비교 그래프</h3>
+        <p class="sub" style="margin:0;">
+          아래 이미지 영역은 <b>src만 연결하면</b> 그래프 비율에 맞춰 자동으로 표시된다.
+        </p>
+
+        <div class="graphs">
+          <div class="graph">
+            <div class="graph-head">탄핵 이전 (2010 ~ 2016)</div>
+            <div class="graph-body">
+            
+              <img src="/static/국정농단 사건 이전의 드라마선호도.png" alt="" />
+            </div>
+          </div>
+
+          <div class="graph">
+            <div class="graph-head">탄핵 이후 (2017 ~ 2019)</div>
+            <div class="graph-body">
+    
+              <img src="/static/국정농단 사건 후 드라마선호도.png" alt="" />
+            </div>
+          </div>
+
+          <div class="graph" style="grid-column: 1 / -1;">
+            <div class="graph-head">팬데믹 이후 (2020 ~ 2022)</div>
+            <div class="graph-body">
+             
+              <img src="/static/코로나시기의 드라마 선호도.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3>해석</h3>
+        <ul>
+          <li><b>탄핵 이전</b><br/>
+            로맨스/드라마/코미디가 상위권에 위치하는 전형적인 선호도를 보이며, 정치/범죄 장르는 중하위권에 위치한다.
+            정서적 안정과 오락성 중심의 장르 선호도를 확인할 수 있다.
+          </li>
+
+          <li style="margin-top:10px;"><b>탄핵 이후</b><br/>
+            탄핵 이전에 비해 범죄/법정/정치 장르 선호도가 눈에 띄게 증가한 것을 볼 수 있다.
+            이는 사회 현실에 대한 관심과 문제의식이 관련 콘텐츠 선호 경향으로 나타났다고 해석할 수 있다.
+          </li>
+
+          <li style="margin-top:10px;"><b>팬데믹 이후</b><br/>
+            드라마 장르를 제외한 전반적인 장르의 선호도 수치가 낮아진 것을 확인할 수 있다.
+            이는 팬데믹으로 인한 드라마 제작 감소의 영향과 더불어, 드라마 외 다른 콘텐츠로 관심이 이동했을 가능성을 시사한다.
+          </li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
