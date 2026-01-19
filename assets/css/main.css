@@ -1604,3 +1604,22 @@ section,
   color: white;
   text-decoration: none;
 }
+
+.portfolio-details-page .portfolio-details-slider .swiper-slide{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 520px;              /* 여기 숫자만 원하는 크기로 조절 */
+}
+
+.portfolio-details-page .portfolio-details-slider img{
+  width: auto !important;     /* 100% 강제 해제 */
+  max-width: 100% !important; /* 가로는 부모 안에서만 */
+  height: 100% !important;    /* slide 높이에 맞춤 */
+  object-fit: contain;        /* 잘리지 않게 */
+  display: block;
+}
+
+body[data-subpage] #scroll-control{
+  display: none !important;
+}
