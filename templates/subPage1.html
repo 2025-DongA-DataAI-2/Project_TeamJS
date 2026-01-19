@@ -9,59 +9,34 @@
   <meta content="" name="keywords" />
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon" />
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+  <link href="/assets/img/favicon.png" rel="icon" />
+  <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="/assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+  <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
   <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet" />
+  <link href="/assets/css/main.css" rel="stylesheet" />
 
   <!-- Highlight.js (Syntax Highlight) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css" />
 </head>
 
-<body class="portfolio-details-page">
+<body class="portfolio-details-page" data-subpage="sub1">
 
-  <header id="header" class="header dark-background d-flex flex-column">
-    <i class="header-toggle d-xl-none bi bi-list"></i>
-
-    <div class="profile-img">
-      <img src="assets/img/my-profile-img.jpg" alt="Profile image" class="img-fluid rounded-circle" />
-    </div>
-
-    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-      <h1 class="sitename">Alex Smith</h1>
-    </a>
-
-    <div class="social-links text-center">
-      <a href="#" class="twitter" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
-      <a href="#" class="facebook" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-      <a href="#" class="instagram" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-      <a href="#" class="linkedin" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-    </div>
-
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="#hero"><i class="bi bi-house navicon"></i>Home</a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
-        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-        <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
-        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
-        <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- ✅ subpage용 사이드바 (코드/결과/홈) -->
+  {% include "partials/subSidebar.html" %}
 
   <main class="main">
 
@@ -71,7 +46,7 @@
         <h1 class="mb-2 mb-lg-0">데이터 전처리 과정 및 결과</h1>
         <nav class="breadcrumbs">
           <ol>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li class="current">Portfolio Details</li>
           </ol>
         </nav>
@@ -79,17 +54,21 @@
     </div>
     <!-- End Page Title -->
 
-    <!-- 코드 넣고 뭐하는 섹션 -->
-    <section id="portfolio-details" class="portfolio-details section">
+    <section id="sec-code" class="portfolio-details section" data-scroll-step>
+
+      <div class="container section-title" data-aos="fade-up">
+        <h2>전처리 코드</h2>
+        <p>데이터 정리 및 분석을 위한 전처리 코드와 결과를 정리합니다.</p>
+      </div>
+
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row gy-4">
-          <!-- 코드 메인 영역 -->
           <div class="col-lg-12">
             <div class="portfolio-info" data-aos="fade-up">
               <h3>데이터 전처리를 위한 코드</h3>
               <div class="code-result-swiper swiper init-swiper">
                 <div class="swiper-wrapper">
-                  <!-- Slide: 코드 -->
+
                   <div class="swiper-slide">
                     <div class="code-container">
                       <div class="code-header">
@@ -154,31 +133,25 @@ genre_kr = {
     "Sitcom": "시트콤"
 }
 
-# =====================================
-# 3. 장르 문자열 변환 함수
-# =====================================
 def translate_genres(genre_str):
     if pd.isna(genre_str):
         return genre_str
-
     genres = [g.strip() for g in genre_str.split(",")]
     return ", ".join(genre_kr.get(g, g) for g in genres)
 
-# =====================================
-# 4. 장르 컬럼에 적용
-# =====================================
 data1["장르"] = data1["장르"].apply(translate_genres)</code></pre>
                     </div>
                   </div>
-                  <!-- Slide: 결과 -->
+
                   <div class="swiper-slide">
                     <div class="result-card">
                       <div class="result-header"><span>결과 이미지</span></div>
                       <div class="result-body">
-                        <img src="static/데이터 한글화.png" alt="데이터 한글화 결과" class="result-image" />
+                        <img src="/static/데이터 한글화.png" alt="데이터 한글화 결과" class="result-image" />
                       </div>
                     </div>
                   </div>
+
                 </div>
                 <div class="swiper-pagination"></div>
                 <div class="swiper-button-prev"></div>
@@ -186,46 +159,45 @@ data1["장르"] = data1["장르"].apply(translate_genres)</code></pre>
               </div>
 
               <br />
-
               <div class="code-result-swiper swiper init-swiper">
                 <div class="swiper-wrapper">
-                  <!-- Slide: 코드 -->
+
                   <div class="swiper-slide">
                     <div class="code-container">
                       <div class="code-header">
                         <span>불필요한 데이터 제거 & 그룹핑</span>
                         <button class="copy-btn" type="button">Copy</button>
                       </div>
-                      <pre class="code-box medium"><code class="language-python"># 필요한 컬럼만 가져와서 DataFrame 새로 만들기
-df1 = data1[['장르', '공개 연도', '평점']].copy()
+                      <pre class="code-box medium"><code class="language-python">df1 = data1[['장르', '공개 연도', '평점']].copy()
 
-# 2010년 이전의 데이터는 데이터의 크기가 너무 작아 유의미한 의미를 가지지 못할것 같아 2010년 이전 데이터는 전부 제외
+# 2010년 이전 데이터 제외
 df1 = df1[df1['공개 연도'] >= 2010]
 
 # 그룹핑
-ott1 = df1[df1['공개 연도'] < 2016]  # 10~15년
-ott2 = df1[(df1['공개 연도'] >= 2016) & (df1['공개 연도'] <= 2018)]  # 16~18년
-ott3 = df1[df1['공개 연도'] > 2018]  # 19~22년</code></pre>
+ott1 = df1[df1['공개 연도'] < 2016]  # 10~15년(OTT 출시 전)
+ott2 = df1[(df1['공개 연도'] >= 2016) & (df1['공개 연도'] <= 2018)]  # 16~18년(OTT 출시)
+ott3 = df1[df1['공개 연도'] > 2018]  # 19~22년(OTT 대중화)</code></pre>
                     </div>
                   </div>
-                  <!-- Slide: 결과 1 -->
+
                   <div class="swiper-slide">
                     <div class="result-card">
                       <div class="result-header"><span>데이터 제거 결과</span></div>
                       <div class="result-body">
-                        <img src="static/불필요한 데이터 제거.png" alt="불필요한 데이터 제거 결과" class="result-image" />
+                        <img src="/static/불필요한 데이터 제거.png" alt="불필요한 데이터 제거 결과" class="result-image" />
                       </div>
                     </div>
                   </div>
-                  <!-- Slide: 결과 2 -->
+
                   <div class="swiper-slide">
                     <div class="result-card">
                       <div class="result-header"><span>그룹핑 결과</span></div>
                       <div class="result-body">
-                        <img src="static/그룹핑.png" alt="그룹핑 결과" class="result-image" />
+                        <img src="/static/그룹핑.png" alt="그룹핑 결과" class="result-image" />
                       </div>
                     </div>
                   </div>
+
                 </div>
                 <div class="swiper-pagination"></div>
                 <div class="swiper-button-prev"></div>
@@ -236,27 +208,29 @@ ott3 = df1[df1['공개 연도'] > 2018]  # 19~22년</code></pre>
 
               <div class="code-result-swiper swiper init-swiper">
                 <div class="swiper-wrapper">
+
                   <div class="swiper-slide">
                     <div class="code-container">
                       <div class="code-header">
                         <span>그룹핑된 데이터에서 장르 추출</span>
                         <button class="copy-btn" type="button">Copy</button>
                       </div>
-                      <pre class="code-box medium"><code class="language-python"># 1) 개행 이스케이프 문자 제거
-# 2) ',' 기준 분리 → explode → strip → value_counts
-ott1_g = ott1['장르'].str.replace('\r', '', regex=False).str.split(',').explode().str.strip().value_counts().index.tolist()
+                      <pre
+                        class="code-box medium"><code class="language-python">ott1_g = ott1['장르'].str.replace('\r', '', regex=False).str.split(',').explode().str.strip().value_counts().index.tolist()
 ott2_g = ott2['장르'].str.replace('\r', '', regex=False).str.split(',').explode().str.strip().value_counts().index.tolist()
 ott3_g = ott3['장르'].str.replace('\r', '', regex=False).str.split(',').explode().str.strip().value_counts().index.tolist()</code></pre>
                     </div>
                   </div>
+
                   <div class="swiper-slide">
                     <div class="result-card">
                       <div class="result-header"><span>결과 이미지</span></div>
                       <div class="result-body">
-                        <img src="static/장르 추출.png" alt="장르 추출 결과" class="result-image" />
+                        <img src="/static/장르 추출.png" alt="장르 추출 결과" class="result-image" />
                       </div>
                     </div>
                   </div>
+
                 </div>
                 <div class="swiper-pagination"></div>
                 <div class="swiper-button-prev"></div>
@@ -267,15 +241,14 @@ ott3_g = ott3['장르'].str.replace('\r', '', regex=False).str.split(',').explod
 
               <div class="code-result-swiper swiper init-swiper">
                 <div class="swiper-wrapper">
+
                   <div class="swiper-slide">
                     <div class="code-container">
                       <div class="code-header">
-                        <span>해당 그룹의 장르 갯수, 평균평점, 선호도 추출함수 생성</span>
+                        <span>장르 갯수/평균평점/선호도 계산 함수</span>
                         <button class="copy-btn" type="button">Copy</button>
                       </div>
-                      <pre class="code-box medium"><code class="language-python"># 년도별로 구분해둔 장르의 개수와 평균평점, 선호도를 저장해두는 데이터프레임 모음집 만드는 함수
-# df = 시대구분 데이터프레임 / g = 장르 리스트 / store = 저장소 / name = 키값(구분명)
-def makeDf(df, g, store, name):
+                      <pre class="code-box medium"><code class="language-python">def makeDf(df, g, store, name):
     dic = {}
     for i in g:
         dic[i] = df[df['장르'].str.contains(i)]['평점']
@@ -290,48 +263,57 @@ def makeDf(df, g, store, name):
     store[name]['선호도'] = store[name]['선호도'].round(2)
     store[name] = store[name].sort_values('선호도', ascending=False)
 
-# 추출한 데이터 담아줄 딕셔너리
 summary_store = {}
-
 makeDf(ott1, ott1_g, summary_store, 'OTT출시전')
 makeDf(ott2, ott2_g, summary_store, 'OTT출시')
-makeDf(ott3, ott3_g, summary_store, 'OTT대중화')
-
-ott1_summary = summary_store['OTT출시전']
-ott2_summary = summary_store['OTT출시']
-ott3_summary = summary_store['OTT대중화']</code></pre>
+makeDf(ott3, ott3_g, summary_store, 'OTT대중화')</code></pre>
                     </div>
                   </div>
+
                   <div class="swiper-slide">
                     <div class="result-card">
                       <div class="result-header"><span>결과 이미지</span></div>
                       <div class="result-body">
-                        <img src="static/데이터 정리.png" alt="데이터 정리 결과" class="result-image" />
+                        <img src="/static/데이터 정리.png" alt="데이터 정리 결과" class="result-image" />
                       </div>
                     </div>
                   </div>
+
                 </div>
                 <div class="swiper-pagination"></div>
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
               </div>
+
             </div>
           </div>
 
-          <!-- 설명 영역 -->
+        </div>
+      </div>
+
+    </section>
+
+    <section id="sec-result" class="section" data-scroll-step>
+      <div class="container section-title" data-aos="fade-up">
+        <h2>결과</h2>
+        <p>시기별 선호도 변화와 TOP/BOTTOM 장르를 확인합니다.</p>
+      </div>
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <!-- 설명 영역 -->
+        <div class="row gy-4">
           <div class="col-lg-12">
             <div class="portfolio-description" data-aos="fade-up" data-aos-delay="200">
               <h2>코드 설명</h2>
               <p>
                 1. 데이터 정리 편의성을 위해 영어로 된 컬럼명, value값을 한글화시켜줌.<br />
-                2. 결측치 및 불필요한 데이터 제거 데이터 정확성 높임<br />
-                3. 한 작품에 여러장르가 등록되어 있어 구분을 위해 분리시킴<br />
-                4. 데이터 분석
+                2. 결측치 및 불필요한 데이터 제거로 데이터 정확성을 높임<br />
+                3. 한 작품에 여러 장르가 등록되어 있어 구분을 위해 분리시킴<br />
+                4. 시기별 선호도/평점/작품 수를 기반으로 비교 분석
               </p>
             </div>
           </div>
         </div>
-
         <div class="row gy-4">
           <div class="col-lg-8">
             <div class="portfolio-details-slider swiper init-swiper">
@@ -351,13 +333,13 @@ ott3_summary = summary_store['OTT대중화']</code></pre>
 
               <div class="swiper-wrapper align-items-center">
                 <div class="swiper-slide">
-                  <img src="static/OTT출시전의 드라마 선호도.png" alt="OTT 출시 전 드라마 선호도" />
+                  <img src="/static/OTT출시전의 드라마 선호도.png" alt="OTT 출시 전 드라마 선호도" />
                 </div>
                 <div class="swiper-slide">
-                  <img src="static/OTT출시후의 드라마 선호도.png" alt="OTT 출시 후 드라마 선호도" />
+                  <img src="/static/OTT출시후의 드라마 선호도.png" alt="OTT 출시 후 드라마 선호도" />
                 </div>
                 <div class="swiper-slide">
-                  <img src="static/OTT대중화 후 드라마 선호도.png" alt="OTT 대중화 후 드라마 선호도" />
+                  <img src="/static/OTT대중화 후 드라마 선호도.png" alt="OTT 대중화 후 드라마 선호도" />
                 </div>
               </div>
 
@@ -388,12 +370,17 @@ ott3_summary = summary_store['OTT대중화']</code></pre>
               </ul>
             </div>
           </div>
-        </div>
 
+        </div>
       </div>
+
     </section>
-    <!-- /코드 띄워주고 뭐하는곳 끝 -->
+
   </main>
+
+  <a href="#" id="scroll-control" class="scroll-control">
+    <i class="bi bi-arrow-down-short"></i>
+  </a>
 
   <footer id="footer" class="footer position-relative light-background">
     <div class="container">
@@ -410,7 +397,7 @@ ott3_summary = summary_store['OTT대중화']</code></pre>
   </footer>
 
   <!-- Home Floating Button -->
-  <a href="index.html" class="home-float-btn" title="홈으로">
+  <a href="/" class="home-float-btn" title="홈으로">
     <i class="bi bi-house-fill"></i>
   </a>
 
@@ -418,22 +405,22 @@ ott3_summary = summary_store['OTT대중화']</code></pre>
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/vendor/aos/aos.js"></script>
+  <script src="/assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="/assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
 
   <!-- Highlight.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
 
   <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="/assets/js/main.js"></script>
 </body>
 
 </html>

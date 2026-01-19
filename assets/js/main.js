@@ -63,19 +63,21 @@
   /**
    * Scroll top button
    */
+  /**
+ * Scroll control button (subpage)
+ */
   const scrollBtn = document.querySelector('#scroll-control');
-  const sections = document.querySelectorAll('section');
+  const sections = document.querySelectorAll('section[data-scroll-step]');
 
   function updateScrollButton() {
     if (!scrollBtn || sections.length === 0) return;
 
-    const currentScroll = window.scrollY + window.innerHeight;
-    const lastSection = sections[sections.length - 1];
+    const current = window.scrollY + window.innerHeight;
+    const last = sections[sections.length - 1];
 
-    const isLastSection =
-      currentScroll >= lastSection.offsetTop + lastSection.offsetHeight - 50;
+    const isLast = current >= last.offsetTop + last.offsetHeight - 50;
 
-    if (isLastSection) {
+    if (isLast) {
       scrollBtn.dataset.mode = 'top';
       scrollBtn.innerHTML = `<i class="bi bi-arrow-up-short"></i>`;
     } else {
@@ -90,22 +92,16 @@
     scrollBtn.addEventListener('click', (e) => {
       e.preventDefault();
 
-      const mode = scrollBtn.dataset.mode;
-
-      if (mode === 'top') {
+      if (scrollBtn.dataset.mode === 'top') {
         window.scrollTo({ top: 0, behavior: 'smooth' });
         return;
       }
 
-      const currentScroll = window.scrollY + 200;
-
-      for (let i = 0; i < sections.length; i++) {
-        if (sections[i].offsetTop > currentScroll) {
-          window.scrollTo({
-            top: sections[i].offsetTop,
-            behavior: 'smooth'
-          });
-          break;
+      const y = window.scrollY + 10;
+      for (const sec of sections) {
+        if (sec.offsetTop > y) {
+          window.scrollTo({ top: sec.offsetTop, behavior: 'smooth' });
+          return;
         }
       }
     });
@@ -113,6 +109,7 @@
     window.addEventListener('load', updateScrollButton);
     window.addEventListener('scroll', updateScrollButton);
   }
+
 
   /**
    * Animation on scroll function and init
@@ -278,14 +275,14 @@
   /**
    * Navmenu Scrollspy
    */
-  let navmenulinks = document.querySelectorAll('.navmenu a');
+  let navmenulinks = document.querySelectorAll('.navmenu a[href^="#"]');
 
   function navmenuScrollspy() {
     navmenulinks.forEach(navmenulink => {
       if (!navmenulink.hash) return;
       let section = document.querySelector(navmenulink.hash);
       if (!section) return;
-      let position = window.scrollY + 200;
+      let position = window.scrollY + 120;
       if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
         document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
         navmenulink.classList.add('active');
@@ -337,47 +334,64 @@
   });
 
   window.addEventListener("load", () => {
-    const slideRankData = [
-      {
-        top5: ["로맨스(27.98점)", "드라마(25.27점)", "미스터리(22.21점)", "코미디(21.82점)", "스릴러(21.63점)"],
-        bottom5: ["모험(5.89점)", "공포(5.96점)", "우정(6.03점)", "청춘(6.31점)", "의학(9.12점)"],
-      },
-      {
-        top5: ["로맨스(31.11점)➖", "드라마(30.60점)➖", "코미디(29.29점)🔼", "미스터리(28.20점)🔽", "스릴러(27.48점)➖"],
-        bottom5: ["시트콤(5.75점)🆕", "학원(5.96점)🆕", "군대(6.17점)🆕", "음악(9.23점)🆕", "정치(9.34점)🆕"],
-      },
-      {
-        top5: ["드라마(38.78점)🔼", "로맨스(36.15점)🔽", "미스터리(33.59점)🔼", "스릴러(33.55점)🔼", "코미디(32.60점)🔽"],
-        bottom5: ["모험(5.75점)↩️", "학원(5.89점)➖", "음악(9.17점)🔼", "군대(12.11점)🔽", "비즈니스(13.60점)🆕"],
-      },
-    ];
+    // ✅ HTML body에 data-subpage="sub1" / "sub2" 로 되어 있으니 subpage를 읽어야 함
+    const pageKey = document.body.dataset.subpage;
+
+    const slideRankDataMap = {
+      sub1: [
+        {
+          top5: ["로맨스(27.98점)", "드라마(25.27점)", "미스터리(22.21점)", "코미디(21.82점)", "스릴러(21.63점)"],
+          bottom5: ["모험(5.89점)", "공포(5.96점)", "우정(6.03점)", "청춘(6.31점)", "의학(9.12점)"],
+        },
+        {
+          top5: ["로맨스(31.11점)➖", "드라마(30.60점)➖", "코미디(29.29점)🔼", "미스터리(28.20점)🔽", "스릴러(27.48점)➖"],
+          bottom5: ["시트콤(5.75점)🆕", "학원(5.96점)🆕", "군대(6.17점)🆕", "음악(9.23점)🆕", "정치(9.34점)🆕"],
+        },
+        {
+          top5: ["드라마(38.78점)🔼", "로맨스(36.15점)🔽", "미스터리(33.59점)🔼", "스릴러(33.55점)🔼", "코미디(32.60점)🔽"],
+          bottom5: ["모험(5.75점)↩️", "학원(5.89점)➖", "음악(9.17점)🔼", "군대(12.11점)🔽", "비즈니스(13.60점)🆕"],
+        },
+      ],
+
+      sub2: [
+        {
+          top5: ["로맨스(30.74점)", "드라마(28.25점)", "코미디(25.53점)", "스릴러(22.96점)", "미스터리(22.90점)"],
+          bottom5: ["SF(6.24점)", "스포츠(6.10점)", "공포(5.96점)", "모험(5.89점)", "시트콤(5.75점)"],
+        },
+        {
+          top5: ["드라마(36.42점)", "로맨스(35.61점)", "미스터리(33.79점)", "스릴러(33.46점)", "코미디(32.78점)"],
+          bottom5: ["스포츠(11.78점)", "군대(9.83점)", "학원(9.39점)", "음악(9.23점)", "모험(5.75점)"],
+        },
+        {
+          top5: ["드라마(33.49점)", "로맨스(29.63점)", "미스터리(27.43점)", "스릴러(26.88점)", "코미디(26.74점)"],
+          bottom5: ["초자연(9.28점)", "공포(9.23점)", "음악(9.17점)", "정치(5.89점)", "비즈니스(5.89점)"],
+        },
+      ],
+    };
+
+    const slideRankData = slideRankDataMap[pageKey];
+    if (!slideRankData) return;
 
     const topGenres = document.querySelectorAll("#top5Box .genre");
     const bottomGenres = document.querySelectorAll("#bottom5Box .genre");
 
     const setGenres = (realIndex) => {
-      const data = slideRankData[realIndex] || slideRankData[0];
-
+      const data = slideRankData[realIndex] ?? slideRankData[0];
       topGenres.forEach((el, i) => (el.textContent = data.top5[i] ?? ""));
       bottomGenres.forEach((el, i) => (el.textContent = data.bottom5[i] ?? ""));
     };
 
-    const sliderEl = document.querySelector(".portfolio-details-slider.swiper");
+    // ✅ 이 페이지의 결과 swiper만 잡기
+    const sliderEl = document.querySelector("main .portfolio-details-slider.swiper");
     if (!sliderEl) return;
 
     const waitForSwiper = (triesLeft = 180) => {
       const swiper = sliderEl.swiper;
 
       if (swiper) {
-        // 초기 1회 적용
         setGenres(swiper.realIndex);
-
-        // loop:true 환경에서 가장 안정적인 인덱스 변경 이벤트
         swiper.on("realIndexChange", () => setGenres(swiper.realIndex));
-
-        // 혹시 realIndexChange가 안 불리는 환경 대비(백업)
         swiper.on("slideChange", () => setGenres(swiper.realIndex));
-
         return;
       }
 
@@ -387,6 +401,80 @@
 
     waitForSwiper();
   });
+
+
+  (() => {
+    "use strict";
+
+    // ✅ subPage에서만 실행
+    if (!document.body.classList.contains("portfolio-details-page")) return;
+
+    const scrollBtn = document.querySelector("#scroll-control"); // id는 scroll-control로 통일
+    const sections = document.querySelectorAll("section[data-scroll-step]");
+
+    if (!scrollBtn || sections.length === 0) return;
+
+    function updateScrollButton() {
+      const currentBottom = window.scrollY + window.innerHeight;
+      const last = sections[sections.length - 1];
+
+      const isLast =
+        currentBottom >= last.offsetTop + last.offsetHeight - 50;
+
+      if (isLast) {
+        scrollBtn.dataset.mode = "top";
+        scrollBtn.innerHTML = `<i class="bi bi-arrow-up-short"></i>`;
+      } else {
+        scrollBtn.dataset.mode = "next";
+        scrollBtn.innerHTML = `<i class="bi bi-arrow-down-short"></i>`;
+      }
+
+      scrollBtn.classList.add("active");
+    }
+
+    scrollBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      if (scrollBtn.dataset.mode === "top") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+
+      // ✅ 다음 섹션으로 이동
+      const y = window.scrollY + 10;
+      for (const sec of sections) {
+        if (sec.offsetTop > y) {
+          window.scrollTo({ top: sec.offsetTop, behavior: "smooth" });
+          return;
+        }
+      }
+    });
+
+    window.addEventListener("load", updateScrollButton);
+    window.addEventListener("scroll", updateScrollButton);
+  })();
+
+  document.querySelectorAll('#navmenu a[href^="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const hash = link.getAttribute('href');
+      const target = document.querySelector(hash);
+      if (!target) return;
+
+      e.preventDefault();
+
+      const offset = 20; // page-title 보정
+      const y = target.getBoundingClientRect().top + window.scrollY - offset;
+
+      window.scrollTo({ top: y, behavior: 'smooth' });
+
+      // 모바일 메뉴 닫기
+      if (document.querySelector('.header-show') && headerToggleBtn) {
+        headerToggle();
+      }
+    });
+  });
+
+
 
 
 })();
